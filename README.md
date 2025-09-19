@@ -6,11 +6,11 @@ It involves creating **custom tables, forms, update sets, relationships, and bus
 ---
 
 ## 🚀 Features
-- Record daily expenses by family members.
-- Automatically calculate total daily expenses.
-- Maintain a structured record of expenses by date.
-- Auto-numbering system for tracking expenses.
-- Relationship mapping between **Family Expenses** and **Daily Expenses** tables.
+- Record daily expenses by family members.  
+- Automatically calculate total daily expenses.  
+- Maintain a structured record of expenses by date.  
+- Auto-numbering system for tracking expenses.  
+- Relationship mapping between **Family Expenses** and **Daily Expenses** tables.  
 - Automated **Business Rule** to sum expenses and update parent records.
 
 ---
@@ -35,10 +35,10 @@ It involves creating **custom tables, forms, update sets, relationships, and bus
 1. Navigate → **Tables > New**  
 2. Label: `Family Expenses` | Menu name: `Family Expenditure`  
 3. Create fields:  
-   - **Number** (String)  
-   - **Date** (Date)  
-   - **Amount** (Integer)  
-   - **Expense Details** (String, max length: 800)  
+   - `Number` (String)  
+   - `Date` (Date)  
+   - `Amount` (Integer)  
+   - `Expense Details` (String, max length: 800)  
 4. Configure **Auto-Number** with prefix `MFE`  
 5. Form configuration:  
    - Number → Read-only  
@@ -50,11 +50,11 @@ It involves creating **custom tables, forms, update sets, relationships, and bus
 1. Navigate → **Tables > New**  
 2. Label: `Daily Expenses` | Add module to `Family Expenditure` menu  
 3. Create fields:  
-   - **Number** (String)  
-   - **Date** (Date)  
-   - **Expense** (Integer)  
-   - **Family Member Name** (Reference)  
-   - **Comments** (String, max length: 800)  
+   - `Number` (String)  
+   - `Date` (Date)  
+   - `Expense` (Integer)  
+   - `Family Member Name` (Reference, Mandatory)  
+   - `Comments` (String, max length: 800)  
 4. Configure **Auto-Number** with prefix `MFE`  
 5. Form configuration:  
    - Number → Read-only  
@@ -72,11 +72,11 @@ It involves creating **custom tables, forms, update sets, relationships, and bus
 ---
 
 ### 6. Business Rule
-1. Navigate → **Business Rules > New**  
-2. Name: `Family Expenses BR`  
-3. Table: `Daily Expenses` | Check **Insert & Update**  
-4. Script:
+- **Name:** Family Expenses BR  
+- **Table:** Daily Expenses  
+- **Trigger:** Insert & Update  
 
+**Script:**
 ```javascript
 (function executeRule(current, previous) {
     var FamilyExpenses = new GlideRecord('u_family_expenses');
